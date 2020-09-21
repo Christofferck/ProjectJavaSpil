@@ -9,8 +9,8 @@ function inputFunc() {
 
     while (b !== a) {
         if (b == a) {
-            document.getElementById("showresult").innerHTML = ("You're right!");
-          break; // Stops loop
+            document.getElementById("showresult").innerHTML = ("You win!");
+          break;
 
         } else if (b < 1 || b > 1000) {
             alert("Your number must be betwen 1-1000")
@@ -23,13 +23,16 @@ function inputFunc() {
         }
         i++;
         if (i === 10)
-            alert("you have used your tries");
+            alert("you have used your tries, computer wins! click try again!");
 
         console.log(`${b}`);
-        console.log(i);
+        document.getElementById("showcount").innerHTML = "Number of tries: " + i;
         }
-        
-console.log(a);
+
+function resetFunc() {
+    location.reload();
+}
+console.log("guess the number: " + a);
 
 
 
