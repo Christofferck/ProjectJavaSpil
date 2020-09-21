@@ -1,4 +1,3 @@
-let roll = 3;
 
 let one = 0;
 let two = 0;
@@ -138,13 +137,7 @@ let roll = function() {
 
 }
 
-
-let diceChoice = function() {
-    document.getElementById("dice1").style.backgroundColor = "lightblue";
+let diceClicked = function () {
+    
 }
-
-let diceChoice1 = function() {
-    document.getElementById("dice2").style.backgroundColor = "lightblue";
-}
-
 
