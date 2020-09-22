@@ -2,6 +2,8 @@ let a = Math.floor(Math.random() * (1000)) + 1;
 let i = 0;
 let submitnumber = document.getElementById("submitnumber");
 let showCount = document.getElementById("showcount");
+let timeNow;
+let timeThen;
 
 
 function inputFunc() {
@@ -22,9 +24,10 @@ function inputFunc() {
             document.getElementById("showresult").innerHTML = (`The number is higher than ${b}`);
         break;
         }
-        i++;
-        if (i === 10)
-            alert("you have used your tries, computer wins! click try again!");
+
+    i++;
+    if (i === 10)
+        alert("you have used your tries, computer wins! click try again!");
 
         console.log(`${b}`);
         document.getElementById("showcount").innerHTML = "Number of tries: " + i;
@@ -33,4 +36,20 @@ function inputFunc() {
     function resetFunc() {
         location.reload();
     }
+
     console.log("guess the number: " + a);
+
+    function startCount() {
+        timeNow = (new Date()).getTime();
+    }
+
+    function endCount() {
+        timeThen = (new Date()).getTime();
+        console.log("your time spend is " + (timeThen - timeNow) * 0.001 + " seconds");
+        console.log("Your score is " + ((timeThen - timeNow) * 0.01 + (i * 100)));
+    }
+
+function btnSave() {
+    let nameSave = document.getElementById("nameSave").value;
+    console.log(nameSave);
+}

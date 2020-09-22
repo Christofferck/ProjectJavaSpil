@@ -1,3 +1,8 @@
+#divTid {
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
 #inputnumber {
     padding: 10px;
     font-size: 18px;
@@ -32,4 +37,12 @@
 #showresult {
     font-size: 20px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#startCount:focus {
+    background-color: yellowgreen;
+}
+
+#endCount:focus {
+    background-color: tomato;
 }
