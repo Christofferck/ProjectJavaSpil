@@ -1,5 +1,5 @@
 
-var options = ["worda", "wordb", "wordc"];
+var options = ["worda", "wordb", "wordc", "test"];
 
 var randomPick = options[Math.floor(Math.random()*options.length)];
 
@@ -11,26 +11,28 @@ var userArray = [];
 
 var length = word.length;
 
-window.onload = function() {
+
+
+var guesses = 15;
+
+var keypress;
+
+var indexes = []
+
+// Adder eventlistener til keyboard
+const doSomething = function(){
+  document.addEventListener("keypress", charCheck);
+
   for (var i = 0; i < length; i++) {
     wordU[i] = "_"
   };
   document.getElementById("display").innerHTML = wordU;
 };
 
-var guesses = 15;
 
-
-
-
-
-var keypress;
-
-
-// Adder eventlistener til keyboard
-const doSomething = function(){
-  document.addEventListener("keypress", charCheck);
-};
+function populate() {
+  document.getElementById("display").innerHTML = wordU;
+}
 
 
 function charCheck(e) {
@@ -43,25 +45,32 @@ function charCheck(e) {
   };
 };
 
+  function wordHint(e) {
+      userInput = e;
+      console.log(userInput)
+        guesses--;
 
-function wordHint(e) {
-  userInput = e;
-  console.log(userInput)
-    guesses--;
+        userArray.push(userInput);
+        console.log(userArray);
 
-    userArray.push(userInput);
-    console.log(userArray)
+        indexes.push(word.indexOf(userInput))
+
+        if (word.includes(userInput)) {
+
+          
+
+          document.getElementById("display").innerHTML = wordU;
+          console.log(indexes)
+
+        };
 
 
-    if (word.includes(userInput)) {
-      console.log(word.includes(userInput))
 
-    };
 
 
   document.getElementById("userInput").innerHTML = userArray;
   document.getElementById("guesses").innerHTML = guesses;
-}
+};
 
 
 
