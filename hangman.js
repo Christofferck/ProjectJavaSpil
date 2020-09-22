@@ -52,14 +52,13 @@ function charCheck(e) {
 
       userArray.push(userInput);
 
+
       let removeKey = allowedChar.indexOf(userInput)
       allowedChar.splice(removeKey, 1)
 
+      //Hvis key
         if (word.includes(userInput)) {
-
-
-
-        //  var index = word.indexOf(userInput);
+          //  var index = word.indexOf(userInput);
 
           for (var i = 0; i < word.length; i++) {
             if(word[i] === userInput) {
