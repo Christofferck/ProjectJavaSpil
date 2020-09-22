@@ -13,7 +13,8 @@ function inputFunc() {
           break;
 
         } else if (b < 1 || b > 1000) {
-            alert("Your number must be betwen 1-1000")
+            alert("Your number must be betwen 1-1000");
+            location.reload();
         } else if (b > a) {
             document.getElementById("showresult").innerHTML = (`The number is lower than ${b}`); 
           break;
@@ -28,11 +29,8 @@ function inputFunc() {
         console.log(`${b}`);
         document.getElementById("showcount").innerHTML = "Number of tries: " + i;
         }
-
-function resetFunc() {
-    location.reload();
-}
-console.log("guess the number: " + a);
-
-
-
+    
+    function resetFunc() {
+        location.reload();
+    }
+    console.log("guess the number: " + a);
