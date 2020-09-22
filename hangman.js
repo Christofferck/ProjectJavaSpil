@@ -1,5 +1,5 @@
 
-var options = ["worda", "wordb", "wordc", "test"];
+var options = ["test"];
 
 var randomPick = options[Math.floor(Math.random()*options.length)];
 
@@ -10,7 +10,6 @@ console.log(word)
 var userArray = [];
 
 var length = word.length;
-
 
 
 var guesses = 15;
@@ -48,20 +47,38 @@ function charCheck(e) {
   function wordHint(e) {
       userInput = e;
       console.log(userInput)
-        guesses--;
 
-        userArray.push(userInput);
-        console.log(userArray);
 
-        indexes.push(word.indexOf(userInput))
+      userArray.push(userInput);
+
+
 
         if (word.includes(userInput)) {
 
-          
+
+          indexes.push(word.indexOf(userInput))
+
+          for (var i = 0; i < word.length; i++) {
+
+            var index = word.indexOf(userInput);
+
+            wordU[index] = userInput
+
+
+          };
+
+
+
 
           document.getElementById("display").innerHTML = wordU;
-          console.log(indexes)
 
+          console.log(indexes)
+          console.log(index)
+
+
+
+        } else {
+            guesses--;
         };
 
 
@@ -73,37 +90,6 @@ function charCheck(e) {
 };
 
 
-
-
-
-
-
-/*
-
-function wordHint(e) {
-  var userInput = keypress;
-  console.log(userInput)
-  if (e.textContent += ` ${e.key}`) {
-    guesses--;
-
-    userArray.push(userInput);
-    console.log(userArray)
-
-    if (guesses === 0) {
-      alert("Game over")
-    }
-
-    if (userArray.length === word.length) {
-      alert("you win")
-    }
-  }
-
-  document.getElementById("userInput").innerHTML = userArray;
-  document.getElementById("guesses").innerHTML = guesses;
-}
-
-
-*/
 
 
 
