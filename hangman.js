@@ -1,9 +1,15 @@
 
-var options = ["test"];
+//var options = ["test"];
 
-var randomPick = options[Math.floor(Math.random()*options.length)];
+var inputWord = document.getElementById("inputWord")
+var inputBtn = document.getElementById("inputBtn")
+//var randomPick = options[Math.floor(Math.random()*options.length)];
 
-var word = randomPick.split([]);
+
+
+var word = []; //= randomPick.split([]);
+
+
 var wordU = [];
 
 console.log(word)
@@ -15,16 +21,29 @@ var guesses = 7;
 
 var keypress;
 
-var indexes = []
+var indexes = [];
 
-var allowedChar = ["a","b","c","d","e","f","g","h","i", "j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","æ","ø","å"];
+var allowedChar = [];
+
+
 
 // Adder eventlistener til keyboard
 const doSomething = function(){
   document.addEventListener("keypress", charCheck);
+  inputBtn.addEventListener("click", pickWord)
+  console.log(inputBtn);
 
-  for (var i = 0; i < length; i++) {
+
+
+};
+
+
+function pickWord() {
+  word = inputWord.value
+  for (var i = 0; i < word.length; i++) {
     wordU[i] = "_"
+  allowedChar = ["a","b","c","d","e","f","g","h","i", "j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","æ","ø","å"];
+
   };
   document.getElementById("display").innerHTML = wordU;
 };
@@ -42,6 +61,11 @@ function charCheck(e) {
   // Hvis keypressed er en af de tillate tegn
   if (allowedChar.includes(e.textContent = e.key) === true) {
     wordHint(keypress)
+
+  };
+
+  if (event.keyCode === 13) {
+    pickWord()
   };
 };
 
@@ -66,16 +90,46 @@ function charCheck(e) {
             };
           };
 
-          document.getElementById("display").innerHTML = wordU;
+          document.getElementById("display").innerHTML = wordU.join(" ");
+
 
 
         } else {
             guesses--;
+
+
     };
+
+    if (word === wordU.join("")) {
+      alert("you win");
+    } else if (guesses === 0) {
+      alert("you lose");
+    }
 
   document.getElementById("userInput").innerHTML = userArray;
   document.getElementById("guesses").innerHTML = guesses;
+  console.log(word)
+  console.log(wordU.join(""))
+
 };
+
+
+
+function winLose() {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 window.addEventListener('load', doSomething);
