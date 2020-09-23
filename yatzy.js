@@ -138,6 +138,6 @@ let roll = function() {
 }
 
 let diceClicked = function () {
-    
+
 }
 

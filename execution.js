@@ -1,13 +1,14 @@
 'use strict';
 const isValid = function(e) {
-    let name = document.getElementById("nameSave").value;
+    let name = document.formal.name;
+
     if (name.value === "") { // hvis born eller name ikke er udfyldt, kan det ikke submittes //
-        window.alert("Name must be filled in");
+        window.alert("Both fields must be filled in");
         name.focus();
         e.preventDefault(); // preventer submit //
         return false;
     } else {
-        createCookie(name.value + (timeThen - timeNow) * 0.001, 42, 0.00094444); // name.value = navnet angivet, born = datoen, 42 = værdien, 0.00.. = hvor lang tid cookien er aktiveret //
+        createCookie(name.value, 42, 0.00094444); // name.value = navnet angivet, born = datoen, 42 = værdien, 0.00.. = hvor lang tid cookien er aktiveret //
         return true;
     }
 }
@@ -15,7 +16,7 @@ const isValid = function(e) {
 const getstarted = function() {
     console.log(`Cookie niels1945-11-25? ${readCookie('niels1945-11-25')}`);
     console.log(`Cookies: ${document.cookie}`)
-    document.addEventListener('btnSave', isValid);
+    document.formal.addEventListener('submit', isValid);
 }
 window.addEventListener('load', getstarted); // fortæller at når DOM'en er loaded, kører den funktionen getstarted //
 
