@@ -1,57 +1,48 @@
+let inputWord = document.getElementById("inputWord");
+let inputBtn = document.getElementById("inputBtn");
+let display = document.getElementById("display");
+let guessesLeft = document.getElementById("guesses")
+let input = document.getElementById("userInput")
+let wrapper2 = document.getElementById("wrapper2")
 
-//var options = ["test"];
+let guesses = 7;
 
-var inputWord = document.getElementById("inputWord")
-var inputBtn = document.getElementById("inputBtn")
-//var randomPick = options[Math.floor(Math.random()*options.length)];
+let word = [];
 
+let wordU = [];
 
+let userArray = [];
 
-var word = []; //= randomPick.split([]);
+let keypress;
 
+let indexes = [];
 
-var wordU = [];
-
-console.log(word)
-var userArray = [];
-
-var length = word.length;
-
-var guesses = 7;
-
-var keypress;
-
-var indexes = [];
-
-var allowedChar = [];
+let allowedChar = [];
 
 
 
 // Adder eventlistener til keyboard
 const doSomething = function(){
   document.addEventListener("keypress", charCheck);
-  inputBtn.addEventListener("click", pickWord)
-  console.log(inputBtn);
-
-
-
+  inputBtn.addEventListener("click", pickWord);
 };
 
 
 function pickWord() {
-  word = inputWord.value
-  for (var i = 0; i < word.length; i++) {
-    wordU[i] = "_"
-  allowedChar = ["a","b","c","d","e","f","g","h","i", "j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","æ","ø","å"];
 
+  word = inputWord.value;
+  for (let i = 0; i < word.length; i++) {
+    wordU[i] = "_";
+    allowedChar = ["a","b","c","d","e","f","g","h","i", "j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","æ","ø","å"];
   };
-  document.getElementById("display").innerHTML = wordU;
+
+  inputWord.remove()
+  inputBtn.remove()
+
+  display.innerHTML = wordU.join(" ");
+  guessesLeft.innerHTML = "Antal gæt tilbage: " + guesses;
 };
 
-
-function populate() {
-  document.getElementById("display").innerHTML = wordU;
-}
 
 
 function charCheck(e) {
@@ -60,74 +51,79 @@ function charCheck(e) {
 
   // Hvis keypressed er en af de tillate tegn
   if (allowedChar.includes(e.textContent = e.key) === true) {
-    wordHint(keypress)
+    wordHint(keypress);
 
   };
 
   if (event.keyCode === 13) {
-    pickWord()
+    pickWord();
   };
 };
 
   function wordHint(e) {
       userInput = e;
-      console.log(userInput)
 
+      let removeKey = allowedChar.indexOf(userInput);
+      allowedChar.splice(removeKey, 1);
 
-      userArray.push(userInput);
-
-
-      let removeKey = allowedChar.indexOf(userInput)
-      allowedChar.splice(removeKey, 1)
-
-      //Hvis key
         if (word.includes(userInput)) {
-          //  var index = word.indexOf(userInput);
 
-          for (var i = 0; i < word.length; i++) {
+          for (let i = 0; i < word.length; i++) {
             if(word[i] === userInput) {
-              wordU[i] = userInput
+              wordU[i] = userInput;
             };
           };
 
-          document.getElementById("display").innerHTML = wordU.join(" ");
-
-
+          display.innerHTML = wordU.join(" ");
 
         } else {
             guesses--;
-
+            userArray.push(userInput);
 
     };
 
-    if (word === wordU.join("")) {
-      alert("you win");
-    } else if (guesses === 0) {
-      alert("you lose");
-    }
+  input.innerHTML = userArray;
+  guessesLeft.innerHTML = "Antal gæt tilbage: " + guesses;
 
-  document.getElementById("userInput").innerHTML = userArray;
-  document.getElementById("guesses").innerHTML = guesses;
-  console.log(word)
-  console.log(wordU.join(""))
+  winLose();
 
 };
 
 
-
 function winLose() {
+  if (word === wordU.join("") || guesses === 0) {
 
-}
+    document.removeEventListener('keypress',  charCheck);
+
+    document.addEventListener("keypress", function(){
+      if (event.keyCode === 13) {
+        reload()
+      };
+    });
+
+    let button = document.createElement('BUTTON');
+
+    button.addEventListener("click", reload);
+
+    let text = document.createTextNode("Prøv Igen?");
+
+    button.appendChild(text);
+
+    wrapper2.appendChild(button); ;
 
 
+    if (word === wordU.join("")) {
+      guessesLeft.innerHTML = "You WIN!";
 
+    } else if (guesses === 0) {
+        guessesLeft.innerHTML = "You LOSE!";
+    };
+  };
+};
 
-
-
-
-
-
-
+function reload() {
+  window.window.location.reload();
+};
 
 
 
