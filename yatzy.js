@@ -1,143 +1,58 @@
 
-let one = 0;
-let two = 0;
-let three = 0;
-let four = 0;
-let five = 0;
-let six = 0;
+var dice = new Array(0,0,0,0,0);
+var hold = new Array(0,0,0,0,0);
+let turn = 0;
 
-let roll = function() {
-        x = Math.random();
-        x = Math.floor(x * 6 + 1); //* 6 = antal muligheder, +1 =  math.random * 6 + 1//
-    
-    switch (x) {
-        case 1:
-            one++;
-        break;
-        case 2:
-            two++;
-        break;
-        case 3:
-            three++;
-        break;
-        case 4:
-            four++;
-        break;
-        case 5:
-            five++;
-        break;
-        default:
-            six++;
-        break;
-
+function rollDice() {
+    if (turn<3){
+        for (i = 0; i < 5; i++) {
+            if (hold[i] == 0) {
+                dice[i] = Math.floor(Math.random() * 5) + 1;
+                document.getElementById("dice" + i) + (dice[i]);
+            }
+        }
+        turn = ++turn;
+        document.getElementById("dice1").innerHTML = dice[0];
+        document.getElementById("dice2").innerHTML = dice[1];
+        document.getElementById("dice3").innerHTML = dice[2];
+        document.getElementById("dice4").innerHTML = dice[3];
+        document.getElementById("dice5").innerHTML = dice[4];
+    }     
+    else {
+        document.getElementById("rules").innerHTML = "Ikke flere kast";
+        document.getElementById("dice1").innerHTML = "";
+        document.getElementById("dice2").innerHTML = "";
+        document.getElementById("dice3").innerHTML = "";
+        document.getElementById("dice4").innerHTML = "";
+        document.getElementById("dice5").innerHTML = "";
     }
-
-        y = Math.random();
-        y = Math.floor(y * 6 + 1); //* 6 = antal muligheder, +1 =  math.random * 6 + 1//
-    
-    switch (y) {
-        case 1:
-            one++;
-        break;
-        case 2:
-            two++;
-        break;
-        case 3:
-            three++;
-        break;
-        case 4:
-            four++;
-        break;
-        case 5:
-            five++;
-        break;
-        default:
-            six++;
-        break;
-
+    var dices = document.getElementsByClassName("dice");
+    for(var z = 0; z < dices.length; z++){
+        dices[z].addEventListener("click", function() {
+           hold[this.dataset.index] = (hold[this.dataset.index] == 0) ? 1 : 0;             
+        });
     }
-
-    f = Math.random();
-    f = Math.floor(f * 6 + 1);
-
-    switch (f) {
-        case 1:
-            one++;
-        break;
-        case 2:
-            two++;
-        break;
-        case 3:
-            three++;
-        break;
-        case 4:
-            four++;
-        break;
-        case 5:
-            five++;
-        break;
-        default:
-            six++;
-        break; 
-    }
-
-    g = Math.random();
-    g = Math.floor(g * 6 + 1);
-
-    switch (g) {
-        case 1:
-            one++;
-        break;
-        case 2:
-            two++;
-        break;
-        case 3:
-            three++;
-        break;
-        case 4:
-            four++;
-        break;
-        case 5:
-            five++;
-        break;
-        default:
-            six++;
-        break; 
-    }
-
-    h = Math.random();
-    h = Math.floor(h * 6 + 1);
-
-    switch (h) {
-        case 1:
-            one++;
-        break;
-        case 2:
-            two++;
-        break;
-        case 3:
-            three++;
-        break;
-        case 4:
-            four++;
-        break;
-        case 5:
-            five++;
-        break;
-        default:
-            six++;
-        break; 
-    }
-
-    document.getElementById("dice1").innerHTML = x;
-    document.getElementById("dice2").innerHTML = y;
-    document.getElementById("dice3").innerHTML = f;
-    document.getElementById("dice4").innerHTML = g;
-    document.getElementById("dice5").innerHTML = h;
-
+}
+function changeColorD1(){
+    document.getElementById("dice1").style.backgroundColor = 'lightgreen';
 }
 
-let diceClicked = function () {
-
+function changeColorD2() {
+    document.getElementById("dice2").style.backgroundColor = 'lightgreen';
 }
 
+function changeColorD3() {
+    document.getElementById("dice3").style.backgroundColor = 'lightgreen';
+}
+
+function changeColorD4() {
+    document.getElementById("dice4").style.backgroundColor = 'lightgreen';
+}
+
+function changeColorD5() {
+    document.getElementById("dice5").style.backgroundColor = 'lightgreen';
+}
+
+function resetDices() {
+    location.reload();
+}

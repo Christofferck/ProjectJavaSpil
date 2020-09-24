@@ -1,0 +1,87 @@
+
+#pH {
+    font-size: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    font-size: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+
+#flexSection {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+#guessNumber {
+    padding: 30px 80px 30px 80px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#hangman {
+    padding: 30px 80px 30px 80px;
+    margin-left: 20px;
+    margin-right: 0px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#yatzy {
+    padding: 30px 80px 30px 80px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#hangman p {
+    color: #fff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 40px;
+}
+
+#guessNumberBtn {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-left: 15px;
+}
+
+#yatzyBtn {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    margin-left: 50px;
+    margin-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+#yatzyImg {
+    height: 200px;
+    width: 200px;
+}
+
+#hangmanImg {
+    height: 200px;
+    width: 200px;
+}
+
+#hangmanBtn {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    margin-left: 50px;
+    margin-top: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#yatzy img {
+    height: 200px;
+    width: 200px;
+}

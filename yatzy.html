@@ -9,15 +9,17 @@
 <body>        
     <h1>Yatzy spil</h1>
     <div id="rollflex">
-        <button id="roll" onclick="roll()">Roll dices</button>
+        <button id="roll" onclick="rollDice()">Roll dices</button>
     </div>
     <section id="dicesection">
-            <button id="dice1" onclick="diceChoice()"></button>
-            <button id="dice2" onclick="diceChoice()"></button>
-            <button id="dice3" onclick="diceChoice()"></button>
-            <button id="dice4" onclick="diceChoice()"></button>
-            <button id="dice5" onclick="diceChoice()"></button>
+            <button onclick="changeColorD1()" id="dice1" data-index="0" class="dice"></button>
+            <button onclick="changeColorD2()" id="dice2" data-index="1" class="dice"></button>
+            <button onclick="changeColorD3()" id="dice3" data-index="2" class="dice"></button>
+            <button onclick="changeColorD4()" id="dice4" data-index="3" class="dice"></button>
+            <button onclick="changeColorD5()" id="dice5" data-index="4" class="dice"></button>
     </section>
+    <p id="rules"></p>
+    <button onclick="resetDices()">Reset</button>
     <script src="yatzy.js"></script>
 </body>
 </html>

@@ -9,13 +9,6 @@ function startCount() {
     timeNow = (new Date()).getTime();
 }
 
-/*
-function endCount() {
-    timeThen = (new Date()).getTime();
-    console.log("your time spend is " + (timeThen - timeNow) * 0.001 + " seconds");
-    console.log("Your score is " + ((timeThen - timeNow) * 0.01 + (i * 100)));
-}
-*/
 
 function inputFunc() {
     let b = document.getElementById("inputnumber").value;
@@ -51,30 +44,3 @@ function inputFunc() {
     }
 
     console.log("guess the number: " + a);
-
-
-
-    function startCount() {
-        timeNow = (new Date()).getTime();
-    }
-
-    function endCount() {
-        timeThen = (new Date()).getTime();
-        console.log("your time spend is " + (timeThen - timeNow) * 0.001 + " seconds");
-        console.log("Your score is " + ((timeThen - timeNow) * 0.01 + (i * 100)));
-    }
-
-    /*
-    function showScore() {
-        if (b == a)
-            document.getElementById("showScore").innerHTML = ((timeThen - timeNow) * 0.01 + (i * 100));
-        else (b !== a)
-            document.getElementById("showScore").innerHTML = "You need to win the game to display score";
-    }
-    */
-/*
-function btnSave() {
-    let nameSave = document.getElementById("nameSave").value;
-    console.log(nameSave);
-}
-*/
