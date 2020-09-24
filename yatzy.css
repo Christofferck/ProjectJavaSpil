@@ -1,66 +1,67 @@
+#formBox {
+  padding: 0.5rem 2rem;
+}
+
 #roll {
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-color: black;
-    Background-color: #fff;
-    text-align: center;
-    margin-top: 100px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-color: black;
+  background-color: #fff;
+  text-align: center;
+  margin-top: 100px;
 }
 
 #rollflex {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 h1 {
-    text-align: center;
+  text-align: center;
 }
 
 #dicesection {
-    display: flex;
-    justify-content: center;
-    margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
 }
 
 #dice1 {
-    padding: 10px 20px 10px 20px;
-    background-color: #fff;
-
+  padding: 10px 20px 10px 20px;
 }
 
 #dice2 {
-    padding: 10px 20px 10px 20px;
-    background-color: #fff;
-    margin-left: 20px;
-
+  padding: 10px 20px 10px 20px;
+  margin-left: 20px;
 }
 
 #dice3 {
-    padding: 10px 20px 10px 20px;
-    background-color: #fff;
-    margin-left: 20px;
-
+  padding: 10px 20px 10px 20px;
+  margin-left: 20px;
 }
 
 #dice4 {
-    padding: 10px 20px 10px 20px;
-    background-color: #fff;
-    margin-left: 20px;
-
+  padding: 10px 20px 10px 20px;
+  margin-left: 20px;
 }
 
 #dice5 {
-    padding: 10px 20px 10px 20px;
-    background-color: #fff;
-    margin-left: 20px;
-
+  padding: 10px 20px 10px 20px;
+  margin-left: 20px;
 }
 
 #dice6 {
-    padding: 10px 20px 10px 20px;
-    background-color: #fff;
-    margin-left: 20px;
-
+  padding: 10px 20px 10px 20px;
+  margin-left: 20px;
+}
+#skema {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+#msg {
+  display: flex;
+  justify-content: center;
 }
