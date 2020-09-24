@@ -2,7 +2,10 @@
 <html lang="da" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Hangman</title>
+
+    <script src="CookieLib.js"></script>
+    <script src="execution1.js"></script>
   </head>
   <body>
     <div id="wrapper">
@@ -13,8 +16,21 @@
         <h3><span id="userInput"></h3>
         <h3 id="display"></h3>
         <h3 id="guesses"></h3>
+        <p id="showTime"></p>
+
+        <form name='formal' method='post'>
+    <p>
+        Name: <input type='text' name='name' action='hangman.html' required/>
+    </p>
+    <p>
+        Time: <input type='number' name='time' action='hangman.html' required/>
+    </p>
+    <p>
+        <input  type='submit' value='Go'/>
+    </p>
+      </form>
       </div>
     </div>
   </body>
-  <script src="hangman.js"></script>
+      <script src="hangman.js"></script>
 </html>

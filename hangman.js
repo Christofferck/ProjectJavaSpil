@@ -19,7 +19,9 @@ let indexes = [];
 
 let allowedChar = [];
 
+let timeThen;
 
+let timeNow;
 
 // Adder eventlistener til keyboard
 const doSomething = function(){
@@ -30,14 +32,15 @@ const doSomething = function(){
 
 function pickWord() {
 
+  timeNow = (new Date()).getTime();
   word = inputWord.value;
   for (let i = 0; i < word.length; i++) {
     wordU[i] = "_";
-    allowedChar = ["a","b","c","d","e","f","g","h","i", "j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","æ","ø","å"];
+    allowedChar = ["a","b","c","d","e","f","g","h","i", "j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","æ","ø","å"," "];
   };
 
-  inputWord.remove()
-  inputBtn.remove()
+  inputWord.remove();
+  inputBtn.remove();
 
   display.innerHTML = wordU.join(" ");
   guessesLeft.innerHTML = "Antal gæt tilbage: " + guesses;
@@ -79,7 +82,6 @@ function charCheck(e) {
         } else {
             guesses--;
             userArray.push(userInput);
-
     };
 
   input.innerHTML = userArray;
@@ -91,13 +93,13 @@ function charCheck(e) {
 
 
 function winLose() {
-  if (word === wordU.join("") || guesses === 0) {
+  if (word || guesses === 0) {
 
     document.removeEventListener('keypress',  charCheck);
 
     document.addEventListener("keypress", function(){
       if (event.keyCode === 13) {
-        reload()
+        reload();
       };
     });
 
@@ -109,11 +111,14 @@ function winLose() {
 
     button.appendChild(text);
 
-    wrapper2.appendChild(button); ;
+    wrapper2.appendChild(button);
 
 
     if (word === wordU.join("")) {
       guessesLeft.innerHTML = "You WIN!";
+
+      timeThen = (new Date()).getTime();
+      document.getElementById("showTime").innerHTML = ("Your time is: " + ((timeThen - timeNow)));
 
     } else if (guesses === 0) {
         guessesLeft.innerHTML = "You LOSE!";
@@ -122,7 +127,7 @@ function winLose() {
 };
 
 function reload() {
-  window.window.location.reload();
+  window.location.reload();
 };
 
 
